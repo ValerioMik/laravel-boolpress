@@ -40,7 +40,7 @@
         <hr>
     @else
         
-        <emps-component></emps-component>
+        <exaaple-component></exaaple-component>
     @endguest
 
     
