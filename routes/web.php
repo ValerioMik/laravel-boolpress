@@ -11,6 +11,6 @@ Route::post('/register', 'Auth\RegisterController@register') -> name('register')
 
 Route::post('/login', 'Auth\LoginController@login') -> name('login');
 
-Auth::routes();
+//Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/posts', 'GuestController@post')->name('posts');

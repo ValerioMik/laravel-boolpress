@@ -1,7 +1,9 @@
 @extends('layouts.main-layout')
 @section('content')
 
-    @guest
+    @auth
+     ciao sono loggato!   
+    @else
         
         <h2>Register</h2>
         <form action="{{ route('register') }}" method="POST">
@@ -38,10 +40,7 @@
 
         </form>
         <hr>
-    @else
-        
-        <exaaple-component></exaaple-component>
-    @endguest
+    @endauth
 
     
 @endsection
