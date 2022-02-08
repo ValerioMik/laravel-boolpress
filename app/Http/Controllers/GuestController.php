@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
 use App\Post;
 class GuestController extends Controller
@@ -17,11 +18,23 @@ class GuestController extends Controller
     }
 
     public function createpost(){
-        return view('pages.create-post');
+
+        $categories = Category::all();
+    
+        return view('pages.create-post',compact('categories'));
     }
 
     public function store(Request $request){
-        $data = $request -> all();
-        dd($data);
+        $data = $request -> validate([
+            "Titolo" => "required|string|min:3",
+           
+        ]);
+        $post = Post::make($data);
+        $category = Category::findOrFail($request -> get('category'));
+       
+        $post -> category() -> associate($category);
+        $post ->save();
+
+        return redirect() -> route('posts');
     }
 }

@@ -6,8 +6,17 @@
 
     @method('POST')
     @csrf
-    <label for="title">title</label>
-    <input type="text" name="title">
+    <label for="Titolo">Titolo</label>
+    <input type="text" name="Titolo">
+    <br>
+    <br>
+    <label for="category">Category</label>
+    <select name="category" >
+        @foreach ($categories as $category)
+        <option value="{{$category -> id}}">{{$category -> name}}</option>
+            
+        @endforeach
+    </select>
     <br><br>
     <input type="submit" value="CREAte">
 
