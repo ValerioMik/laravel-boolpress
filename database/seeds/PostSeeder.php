@@ -1,10 +1,27 @@
 <?php
 
-factory(Post::class, 50) -> make() -> each(function($post) {
+use Illuminate\Database\Seeder;
 
-    $test = Test::inRandomOrder() -> limit(1) -> first();
-    $post -> test() -> associate($test);
+use App\Category;
+use App\Post;
+class PostSeeder extends Seeder
+{
 
-    $post -> save();
-});
+    /**
+         * Seed the application's database.
+         *
+         * @return void
+            */
+    public function run()
+    {
+        factory(Post::class, 50) -> make() -> each(function($post) {
 
+            $category = Category::inRandomOrder() -> limit(1) -> first();
+            
+            $post -> category() -> associate($category);
+
+            $post -> save();
+        });
+    }    
+     
+}
