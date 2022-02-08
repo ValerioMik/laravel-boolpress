@@ -15,4 +15,13 @@ class GuestController extends Controller
         $posts = Post::all();
         return view('pages.posts', compact('posts'));
     }
+
+    public function createpost(){
+        return view('pages.create-post');
+    }
+
+    public function store(Request $request){
+        $data = $request -> all();
+        dd($data);
+    }
 }

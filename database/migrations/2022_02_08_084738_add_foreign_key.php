@@ -16,7 +16,7 @@ class AddForeignKey extends Migration
         Schema::table('posts', function (Blueprint $table) {
             $table -> foreign('category_id','post_category')
                     ->references('id')
-                   ->on('categoryes');
+                   ->on('categories');
         });
     }
 
@@ -29,5 +29,7 @@ class AddForeignKey extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             $table -> dropForeign('post_category');
-    });
+                   
+        });
+    }    
 }

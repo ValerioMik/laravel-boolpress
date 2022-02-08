@@ -19,8 +19,10 @@ class CreatePostsTable extends Migration
             $table->string('Titolo');
             $table->string('sottotitolo');
             $table->string('autore');
-            $table->string('contenuto_post');
+            $table->text('contenuto_post');
             $table->dateTime('creato_alle', 0);
+
+            $table-> bigInteger('category_id')->unsigned()-> nullable();
            
             $table->timestamps();
         });

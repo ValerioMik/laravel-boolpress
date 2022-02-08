@@ -4,16 +4,19 @@
 
 <div>
 
-  <h2>titolo</h2>
-  <p>sottotitolo</p>
-  <p>text</p>
+      
+    <a href="{{route('logout')}}">Logout</a><br>
+    <a href="{{route('post.create')}}">CREA UN POST</a>
+ 
 
   @foreach ($posts as $post)
-    <h4>
-    {{$post->title}}
-    {{$post->sottotitolo}}
-    {{$post->contenuto_post}}
-  </h4>  
+    <div>
+      <h2>titolo :  {{$post->Titolo}}</h2>
+      <h4>sottotitolo: {{$post->sottotitolo}}</h4> 
+      <p>text: {{$post->contenuto_post}}</p>
+      <p>category: </p>{{$post -> Category-> name}}
+      <br><hr><br>
+  </div>  
   @endforeach
 
 </div>
