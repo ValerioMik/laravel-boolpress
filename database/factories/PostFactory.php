@@ -11,6 +11,6 @@ $factory->define(Post::class, function (Faker $faker) {
          'sottotitolo' => $faker->words(3, true),
          'autore'=>$faker->words(1, true),    
          'contenuto_post' => $faker->paragraph(),
-         'creato_alle' => $faker->dateTime(),
+        
     ];
 });

@@ -11,10 +11,15 @@
 
   @foreach ($posts as $post)
     <div>
-      <h2>titolo :  {{$post->Titolo}}</h2>
-      <h4>sottotitolo: {{$post->sottotitolo}}</h4> 
-      <p>text: {{$post->contenuto_post}}</p>
-      <p>category: </p>{{$post -> Category-> name}}
+      <h2>Titolo :  {{$post->Titolo}}</h2>
+      <h4>Sottotitolo: {{$post->sottotitolo}}</h4> 
+      <p>Text: {{$post->contenuto_post}}</p>
+      <p>Category: </p>{{$post -> Category-> name}}
+      <p>TAG:
+        @foreach ($post -> tags as $tag)
+            {{$tag -> name}} ,
+        @endforeach
+      </p>
       <br><hr><br>
   </div>  
   @endforeach
