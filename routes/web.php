@@ -12,6 +12,7 @@ Route::get('/logout', 'Auth\LoginController@logout') -> name('logout');
 Route::get('/post/create','GuestController@createPost')->name('post.create');
 Route::get('/post/edit/{id}','GuestController@edit')->name('post.edit');
 Route::post('/post/update/{id}','GuestController@update')->name('post.update');
+Route::get('/post/delete/{id}','GuestController@delete')->name('post.delete');
 
 Route::post('/register', 'Auth\RegisterController@register') -> name('register');
 Route::post('post/store','GuestController@store') -> name('post.store');

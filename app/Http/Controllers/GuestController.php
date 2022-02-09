@@ -68,11 +68,23 @@ class GuestController extends Controller
        $post -> category() -> associate($category);
        $post ->save();
 
-       $tags = Tag::findOrFail($request -> get('tags'));
+       try{
+        $tags = Tag::findOrFail($request -> get('tags'));
+       }catch(\Exception $e){}
+
        $post -> tags() -> sync($tags);
        $post -> save();
 
 
        return redirect() -> route('posts');
+    }
+
+    public function delete($id){
+        $post = Post::findOrFail($id);
+        $post -> tags() -> sync([]);
+        $post -> save();
+        
+        $post -> delete();
+        return redirect() -> route('posts');
     }
 }

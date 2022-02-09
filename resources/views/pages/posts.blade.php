@@ -20,7 +20,8 @@
             {{$tag -> name}} ,
         @endforeach
       </p>
-      <a  href="{{route('post.edit', $post -> id)}}">EDIT </a>
+      <a  href="{{route('post.edit', $post -> id)}}">EDIT </a><br>
+      <a href="{{route('post.delete', $post -> id)}}">DELETE</a>
       <br><hr><br>
   </div>  
   @endforeach
